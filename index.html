@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Who is support this week</title>
+
+  <style>
+    body {
+    background: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    p {
+    display:inline;
+    color:black;
+    }
+
+  </style>
+
+
+</head>
+
+<body>
+
+<center><h2 style="color:black;">This weeks support is:</h2></center>
+<center><p>Week: </p><p id="getWeek"></p><p id="support"></p></center>
+
+<script>
+
+
+// It basically gets the current week number (taken from stackoverflow)
+Date.prototype.getWeek = function() {
+	    var onejan = new Date(this.getFullYear(), 0, 1);
+	        return Math.ceil((((new Date(this.getFullYear(), this.getMonth(), this.getDate()) - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+};
+
+var myDate = new Date();
+console.log(myDate);
+document.getElementById("getWeek").innerHTML = myDate.getWeek() + "<br>";
+
+</script>
+
+
+
+</body>
+</html>
+
+
