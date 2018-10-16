@@ -39,9 +39,23 @@ var myDate = new Date();
 console.log(myDate);
 document.getElementById("getWeek").innerHTML = myDate.getWeek() + "<br>";
 
+
+// Loops through and stacking only 52 (weeks in a year) items of the team array. (trying to... atleast...)
+var complete = [];
+var max = [];
+var team = ["Juggernaut","Centaur Warrunner","Enchantress","Razor"];
+var i = 0;
+while ( i < 27 ) {
+    for  (j = 0; j < team.length; j++) {
+        max.push(team[j] + "<br>");
+    }
+    i += 1;
+}
+
+document.getElementById("support").innerHTML = max;
+
+
 </script>
-
-
 
 </body>
 </html>
