@@ -28,11 +28,19 @@
 
 <script>
 
+// A range function as in python
+function range(start, end) {
+    var ans = [];
+    for (let i = start; i <= end; i++) {
+        ans.push(i);
+    };
+    return ans;
+};
 
 // It basically gets the current week number (taken from stackoverflow)
 Date.prototype.getWeek = function() {
-	    var onejan = new Date(this.getFullYear(), 0, 1);
-	        return Math.ceil((((new Date(this.getFullYear(), this.getMonth(), this.getDate()) - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    var onejan = new Date(this.getFullYear(), 0, 1);
+    return Math.ceil((((new Date(this.getFullYear(), this.getMonth(), this.getDate()) - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 };
 
 var myDate = new Date();
@@ -40,7 +48,7 @@ console.log(myDate);
 document.getElementById("getWeek").innerHTML = myDate.getWeek() + "<br>";
 
 
-// Loops through and stacking only 52 (weeks in a year) items of the team array. (trying to... atleast...)
+// Loops through and stacking only 52 (weeks in a year) items of the team array
 var complete = [];
 var max = [];
 var team = ["Juggernaut","Centaur Warrunner","Enchantress","Razor"];
@@ -48,16 +56,19 @@ var i = 0;
 while ( i < 27 ) {
     for  (j = 0; j < team.length; j++) {
         max.push(team[j] + "<br>");
-    }
+    };
     i += 1;
-}
+};
+for (maximum in range(1,52)){
+    complete.push(max[maximum]);
+};
+complete.unshift("Add something on the 0 index <br>");
 
-document.getElementById("support").innerHTML = max;
 
+document.getElementById("support").innerHTML = complete;
 
 </script>
 
 </body>
 </html>
-
 
